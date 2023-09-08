@@ -21,3 +21,4 @@ Route::get('/', 'Home@index');
 Route::get('/registrasi', 'Registrasi@index');
 Route::post('/simpanRegis', 'Registrasi@registrasi');
 Route::get('/masukSuplier', 'Suplier@index');
+Route::post('/masukSuplier', 'Suplier@masukSuplier');
