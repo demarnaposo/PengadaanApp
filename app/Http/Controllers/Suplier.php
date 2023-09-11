@@ -53,4 +53,22 @@ class Suplier extends Controller
             return redirect('/masukSuplier')->with('gagal', 'Data email tidak terdaftar');
         }
     }
+
+    public function suplierKeluar()
+    {
+        $token = Session::get('token');
+        if (M_Suplier::where('token', $token)->update(
+            [
+                'token' => 'keluar'
+            ]
+
+        )) {
+
+            Session::put('token', "");
+            return redirect('/');
+        } else {
+
+            return redirect('/masukSuplier')->with('gagal', 'Gagal Logout');
+        }
+    }
 }
